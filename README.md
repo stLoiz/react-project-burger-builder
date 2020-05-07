@@ -38,7 +38,7 @@ I used [firebase](https://firebase.google.com/?gclid=EAIaIQobChMIpNfBiZqd6QIVlO7
    - Go to the Database tab of the newly created project and choose Realtime Database/Create database
  
    - Add a table by clicking on the `+` sign:
-        `Name`: ingredients 
+        - `Name`: ingredients 
             - `Name`: salad `Value`: 0
             - `Name`: meat `Value`: 0
             - `Name`: bacon `Value`: 0
