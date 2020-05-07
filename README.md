@@ -26,7 +26,7 @@ The user can:
 1. Clone the project 
 
 2. In the project directory:
-  - run npm install
+  - run `npm install`
 
 
 3. Create the database
@@ -36,34 +36,33 @@ The user can:
  
    - Go to the Database tab of the newly created project and choose Realtime Database/Create database
  
-   - Add a table by clicking on the `+` sign :
+   - Add a table by clicking on the `+` sign:
         `Name`: ingredients 
             - `Name`: salad `Value`: 0
             - `Name`: meat `Value`: 0
             - `Name`: bacon `Value`: 0
             - `Name`: cheese `Value`: 0
  
-
-  - Configure the database rules under the database tab by adding the following json:
+   - Configure the database rules under the database tab by adding the following json:
  
- `{
-  "rules": {
-    	"ingredients": {
-      		".read": "true",
-        	".write": "true",
-       },
-    	"orders": {
-      		".read": "auth != null",
-        	".write": "auth != null",
-            ".indexOn": ["userId"]
-      }
-  }
-}`
+           `{
+            "rules": {
+                "ingredients": {
+                    ".read": "true",
+                    ".write": "true",
+                 },
+                "orders": {
+                    ".read": "auth != null",
+                    ".write": "auth != null",
+                      ".indexOn": ["userId"]
+                }
+            }
+          }`
 
-  - Enable Authentication in database:
-   - Go to Authentication tab 
-   - Click on Set-up sign-in method
-   - Enable Email/Password
+   - Enable Authentication in database:
+     - Go to Authentication tab 
+     - Click on Set-up sign-in method
+     - Enable Email/Password
 
 4. Conifigure **env.**
  
