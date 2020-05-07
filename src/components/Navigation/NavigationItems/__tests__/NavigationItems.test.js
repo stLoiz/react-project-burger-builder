@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-
+import toJson from 'enzyme-to-json';
 import NavigationItems from '../NavigationItems';
 import NavigationItem from '../NavigationItem/NavigationItem';
 
@@ -9,6 +9,10 @@ describe('<NavigationItems/>', () => {
   beforeEach(() => {
     wrapper = shallow(<NavigationItems isAuthenticated />);
   });
+  it('should match default snapshot on render', () => {
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+
   it('should render two <NavigationItem/> elements if user is not authenticated', () => {
     wrapper.setProps({ isAuthenticated: false });
     expect(wrapper.find(NavigationItem)).toHaveLength(2);
