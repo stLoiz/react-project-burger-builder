@@ -1,4 +1,4 @@
-# Project Decription
+# Project Description
 
 The project is built in React and is using Redux.<br/>
 The main goal is to display how you can use:
@@ -12,7 +12,7 @@ The main goal is to display how you can use:
   - Thunk middlware to be able to run asynchronous code in actions
   - Authentication using localstorage
 - Testing using jest and enzyme
-- The best practises for optimization in React
+- The best practices for optimization in React
 
 ### What are the main functionalities of this project?
 The user can:
