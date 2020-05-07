@@ -83,3 +83,4 @@ I used [firebase](https://firebase.google.com/?gclid=EAIaIQobChMIpNfBiZqd6QIVlO7
 Some test are added just to show how jest and enzyme testing works:
 
 To run the tests `yarn test`
+To update snapshots `yarn test -u`
