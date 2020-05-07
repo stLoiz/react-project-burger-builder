@@ -1,68 +1,85 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Decription
 
-## Available Scripts
+The project is built in React and is using Redux.<br/>
+The main goal is to display how you can use:
+- Class based components/containers and presentational components.<br/>
+- HOC components
+- Lifecycle methods
+- Routing
+- Axios for http requests
+- Redux:
+  - Reducers and Actions
+  - Thunk middlware to be able to run asynchronous code in actions
+  - Authentication using localstorage
+- Testing using jest and enzyme
+- The best practises for optimization in React
 
-In the project directory, you can run:
+### What are the main functionalities of this project?
+The user can:
+  - sign in/up
+  - build a burger by adding or removing ingredients
+  - order the burger by fill in a form 
+  - see his orders 
 
-### `yarn start`
+## To run the project
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone the project 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+2. In the project directory:
+  - run npm install
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Create the database
+ I used [firebase](https://firebase.google.com/?gclid=EAIaIQobChMIpNfBiZqd6QIVlO7tCh3_xQDlEAAYASAAEgImxfD_BwE) to create a dummy database. You can do the same as it is really quick:
+ 
+   - Click on this [link](https://firebase.google.com/?gclid=EAIaIQobChMIpNfBiZqd6QIVlO7tCh3_xQDlEAAYASAAEgImxfD_BwE) and create a project. 
+ 
+   - Go to the Database tab of the newly created project and choose Realtime Database/Create database
+ 
+   - Add a table by clicking on the `+` sign :
+        `Name`: ingredients 
+            - `Name`: salad `Value`: 0
+            - `Name`: meat `Value`: 0
+            - `Name`: bacon `Value`: 0
+            - `Name`: cheese `Value`: 0
+ 
 
-### `yarn build`
+  - Configure the database rules under the database tab by adding the following json:
+ 
+ `{
+  "rules": {
+    	"ingredients": {
+      		".read": "true",
+        	".write": "true",
+       },
+    	"orders": {
+      		".read": "auth != null",
+        	".write": "auth != null",
+            ".indexOn": ["userId"]
+      }
+  }
+}`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - Enable Authentication in database:
+   - Go to Authentication tab 
+   - Click on Set-up sign-in method
+   - Enable Email/Password
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+4. Conifigure **env.**
+ 
+ Create a file .env to the root of the project directory and add this:
+ 
+ `REACT_APP_FIREBASE_URL='your/firebase/url'`
+ `REACT_APP_FIREBASE_SIGN_UP_URL='https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=yourKey'`
+ `REACT_APP_FIREBASE_SIGN_IN_URL='https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=yourKey'`
+ 
+ To get your FIREBASE URL go to the firebase project that you created, it is under the database tab.
+ To get the key Click on Settings of the project and under general tab you will see the Web Api Key
+ 
+5. In your project directory run `yarn start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Testing
 
-### `yarn eject`
+Some test are added just to show how jest and enzyme testing works:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+To run the tests `yarn test`
