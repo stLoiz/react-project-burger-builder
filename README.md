@@ -22,6 +22,10 @@ The user can:
   - order the burger by fill in a form 
   - see his orders 
 
+## TODO
+- CSS improvements
+- UX/UI improvements specifically the way errors are displaying in forms
+
 ## To run the project
 
 1. Clone the project 
