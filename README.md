@@ -1,6 +1,7 @@
 # Project Description
 
-The project is built in React and is using Redux.<br/>
+The project is built in React and is using Redux and it is in aplpha version as it is not completed yet.<br/>
+You can checkout the project [here](https://www.stellaloizou.eu/burger-builder-react-project/)<br/>
 The main goal is to display how you can use:
 - Class based components/containers and presentational components.<br/>
 - HOC components
